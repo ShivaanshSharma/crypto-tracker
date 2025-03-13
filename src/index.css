@@ -3,6 +3,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: oklch(0.13 0.028 261.692);
 }
 
 h1 {
