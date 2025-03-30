@@ -2,6 +2,7 @@ import CryptoList from "./components/CryptoList"
 import Header from "./components/Header"
 import { useEffect, useState } from "react"
 import axios from "axios"
+import Content from "./components/Content"
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
  return (
     <>
       <Header />
+      <Content />
       <CryptoList listData={list} />
     </>
   )

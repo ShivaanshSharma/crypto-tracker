@@ -30,7 +30,7 @@ export default function CryptoList({listData}) {
     )
 
     return (
-        <div className="bg-gray-950 h-auto py-8 flex flex-col m-auto">
+        <div className="bg-gray-950 h-auto flex flex-col mx-auto">
             <div className="w-7/10 mx-auto">
                 <Input onSearch={(event) => searchChangeHandler(event)} type="text">
                     Search
