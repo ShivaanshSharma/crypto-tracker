@@ -1,24 +1,50 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Input from "./Input.jsx";
 import CryptoItem from "./CryptoItem.jsx";
 
 export default function CryptoList({listData}) {
 
+    console.log(listData);
+
     const [search, setSearch] = useState('');
+    const [showList, setShowList] = useState();
+
+    useEffect(() => {
+        setShowList(listData);
+    }, [listData])
 
     const fetched = listData ? true : false;
-
 
     const searchChangeHandler = (event) => {
         setSearch(event.target.value);
         console.log(search);
     }
 
-    const filteredList = listData?.filter((coin) => coin.name.toLowerCase().includes(search.toLowerCase()));
+    const topHandler = () => {
+        let newList = listData.sort((a, b) => b.market_cap - a.market_cap).slice(0, 10);
+        setShowList(newList);
+    }
+
+    const belowHandler = () => {
+        let newList = listData.filter((item) => item.current_price <= 1);
+        setShowList(newList);
+    }
+
+    const trendingHandler = () => {
+        let newList = listData.sort((a, b) => b.price_change_percentage_24h - a.price_change_percentage_24h).slice(0, 10);
+        setShowList(newList);
+    }
+
+    const allCoinsHandler = () => {
+        let newList = listData;
+        setShowList(newList);
+    }
+
+    let filteredList = showList?.filter((coin) => coin.name.toLowerCase().includes(search.toLowerCase()));
 
     const mainContent = (
         <>
-            <div className="my-3 flex justify-center items-center text-left flex-row gap-20 border-2 border-white rounded-full p-2">
+            <div className="flex justify-center items-center text-left flex-row gap-20 border-2 border-white rounded-full p-2">
                 <span className="flex-1/12"></span>
                 <span className="flex-3/12">Name</span>
                 <span className="flex-3/12">Price</span>
@@ -30,14 +56,20 @@ export default function CryptoList({listData}) {
     )
 
     return (
-        <div className="bg-gray-950 h-auto flex flex-col mx-auto">
-            <div className="w-7/10 mx-auto">
+        <div className="bg-gray-950 h-auto flex flex-col mx-auto gap-6">
+            <div className="w-7/10 mx-auto text-white flex flex-row gap-3 justify-between">
                 <Input onSearch={(event) => searchChangeHandler(event)} type="text">
                     Search
                 </Input>
+                <span className="flex flex-row gap-3">
+                    <button onClick={topHandler} className="cursor-pointer duration-150 border-2 rounded-xl p-3 hover:bg-blue-950 hover:text-white">Top 10 coins</button>
+                    <button onClick={belowHandler} className="cursor-pointer duration-150 border-2 rounded-xl p-3 hover:bg-blue-950 hover:text-white">Below 1$</button>
+                    <button onClick={trendingHandler} className="cursor-pointer duration-150 border-2 rounded-xl p-3 hover:bg-blue-950 hover:text-white">Trending</button>
+                    <button onClick={allCoinsHandler} className="cursor-pointer duration-150 border-2 rounded-xl p-3 hover:bg-blue-950 hover:text-white">All coins</button>
+                </span>
             </div>
             <div className="w-7/10 mx-auto text-white my-5">
-                {fetched ? mainContent : <div className="border-2 rounded-full p-4 border-white text-center"><span>Fetching Market Data...</span></div>}
+                {fetched ? mainContent : <div className="border-2 rounded-full p-4 border-white text-center"><div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full mx-auto animate-spin"></div></div>}
             </div>
         </div>
     )
