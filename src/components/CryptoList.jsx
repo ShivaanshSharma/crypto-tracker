@@ -44,7 +44,7 @@ export default function CryptoList({listData}) {
 
     const mainContent = (
         <>
-            <div className="flex flex-row border-2 text-center border-white rounded-full p-2">
+            <div className="flex flex-row border-2 text-center border-white rounded-full p-2 gap-6 items-center">
                 <span className="opacity-0">shshs</span>
                 <span className="flex-2/6">Name</span>
                 <span className="flex-1/6">Price</span>
