@@ -8,9 +8,9 @@ export default function Content () {
         initial={{ x: -1000, opacity: 0}}
         animate={{ x: 0, opacity:1 }}
         transition={{ duration: 1}}
-        className="flex flex-col lg:flex-row sm:flex-col md:flex-col w-8/10 lg:w-6/10 sm:w-6/10 md:w-6/10 mt-18 mb-9 mx-auto">
+        className="flex flex-col lg:flex-row sm:flex-col md:flex-col w-9/10 lg:w-6/10 sm:w-6/10 md:w-6/10 mt-12 lg:mt-18 md:mt-18 sm:mt-18 mb-9 mx-auto">
             <div>
-                <span className="lg:text-8xl sm:text-8xl md:text-8xl text-white content-div text-7xl"><span className="duration-150 cursor-pointer text-yellow-300 hover:text-blue-950">Crypto!</span><br /><span className="text-5xl lg:text-6xl md:text-6xl sm:text-6xl">to the</span><br />MOON!</span>
+                <span className="lg:text-8xl sm:text-8xl md:text-8xl text-white content-div text-6xl"><span className="duration-150 cursor-pointer text-yellow-300 hover:text-blue-950">Crypto!</span><br /><span className="text-4xl lg:text-6xl md:text-6xl sm:text-6xl">to the</span><br />MOON!</span>
             </div>
             <div>
                 <motion.img 

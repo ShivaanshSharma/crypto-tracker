@@ -57,7 +57,7 @@ export default function CryptoList({listData}) {
 
     return (
         <div className="bg-gray-950 h-auto flex flex-col mx-auto gap-6">
-            <div className="w-7/10 mx-auto text-white flex flex-col lg:flex-row md:flex-row sm:flex-row gap-3 justify-between">
+            <div className="w-9/10 lg:w-7/10 md:w-7/10 sm:w-7/10 mx-auto text-white flex flex-col lg:flex-row md:flex-row sm:flex-row gap-3 justify-between">
                 <Input onSearch={(event) => searchChangeHandler(event)} type="text">
                     Search
                 </Input>
@@ -68,7 +68,7 @@ export default function CryptoList({listData}) {
                     <button onClick={allCoinsHandler} className="cursor-pointer duration-150 border-2 rounded-xl p-3 hover:bg-blue-950 hover:text-white">All coins</button>
                 </span>
             </div>
-            <div className="w-9/10 lg:w-7/10 md:w-7/10 sm:w-9/10 mx-auto text-white my-5">
+            <div className="w-10/10 lg:w-7/10 md:w-7/10 sm:w-9/10 mx-auto text-white my-5">
                 {fetched ? mainContent : <div className="border-2 rounded-full p-4 border-white text-center"><div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full mx-auto animate-spin"></div></div>}
             </div>
         </div>
