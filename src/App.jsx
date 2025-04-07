@@ -2,6 +2,7 @@ import CryptoList from "./components/CryptoList"
 import Header from "./components/Header"
 import { useEffect, useState } from "react"
 import Content from "./components/Content"
+import Footer from "./components/Footer";
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
       <Header />
       <Content />
       <CryptoList listData={list} onRefresh={refreshHandler} />
+      <Footer />
     </>
   )
 }

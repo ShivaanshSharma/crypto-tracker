@@ -42,11 +42,11 @@ export default function CryptoList({listData, onRefresh}) {
     const mainContent = (
         <>
             <div className="text-xs lg:text-base md:text-base sm:text-base font-bold flex flex-row border-2 text-center border-white rounded-full p-2 gap-6 items-center">
-                <span className="opacity-0">shshs</span>
-                <span className="flex-2/6">Name</span>
-                <span className="flex-1/6">Price</span>
-                <span className="flex-1/6">Market Cap</span>
-                <span className="flex-1/6">Change (24hr)</span>
+                <span className="px-1 flex-1/12">Icon</span>
+                <span className="flex-3/12">Name</span>
+                <span className="flex-2/12">Price</span>
+                <span className="flex-3/12">Market Cap</span>
+                <span className="flex-2/12 px-1">Change (24hr)</span>
             </div>
             {filteredList?.map((item, index) => <CryptoItem itemData={item} key={index} />)} 
         </>
