@@ -41,7 +41,7 @@ export default function CryptoList({listData, onRefresh}) {
 
     const mainContent = (
         <>
-            <div className="text-xs lg:text-base md:text-base sm:text-base font-bold flex flex-row border-2 text-center border-white rounded-full p-2 gap-6 items-center">
+            <div className="text-xs lg:text-base md:text-base sm:text-base font-bold flex flex-row  text-center  rounded-2xl bg-blue-950 p-2 gap-6 items-center">
                 <span className="px-1 flex-1/12">Icon</span>
                 <span className="flex-3/12">Name</span>
                 <span className="flex-2/12">Price</span>
@@ -63,24 +63,24 @@ export default function CryptoList({listData, onRefresh}) {
 
     return (
         <div className="bg-gray-950 h-auto flex flex-col mx-auto gap-6">
-            <div className="w-9/10 lg:w-7/10 md:w-7/10 sm:w-7/10 mx-auto text-white flex flex-col lg:flex-row md:flex-row sm:flex-row gap-3 justify-between">
+            <div className="w-11/12 lg:w-7/10 md:w-7/10 sm:w-9/10 mx-auto text-white flex flex-col lg:flex-row md:flex-row sm:flex-row gap-3 justify-between">
                 <Input onSearch={(event) => searchChangeHandler(event)} type="text">
                     Search
                 </Input>
                 <span className="flex flex-row justify-between lg:flex-row md:flex-row sm:flex-row gap-3">
 
-                    <select className="cursor-pointer border-2 p-2 text-left rounded-full" name='selection' onChange={selectionChangeHandler}>
+                    <select className="cursor-pointer border-1 p-2 text-sm text-left rounded-full" name='selection' onChange={selectionChangeHandler}>
                         <option className="bg-blue-950" value='allCoins'>All coins</option>
                         <option className="bg-blue-950" value='trending'>Trending</option>
                         <option className="bg-blue-950" value='top10Coins'>Top 10 coins</option>
                         <option className="bg-blue-950"  value='below1'>Below 1$</option>
                     </select>
 
-                    <button disabled={disable} onClick={refreshHandler}  className={`cursor-pointer duration-150 p-2 px-3 border-2 rounded-full hover:bg-blue-950 ${disable ? "opacity-25": null}`}>Refresh</button>
+                    <button disabled={disable} onClick={refreshHandler}  className={`text-sm cursor-pointer duration-150 p-2 px-3 border-1 rounded-full hover:bg-blue-950 ${disable ? "opacity-25": null}`}>Refresh</button>
                 
                 </span>
             </div>
-            <div className="w-10/10 lg:w-7/10 md:w-7/10 sm:w-9/10 mx-auto text-white my-5">
+            <div className="w-11/12 lg:w-7/10 md:w-7/10 sm:w-9/10 mx-auto text-white my-5">
                 {!fetching ? mainContent : <div className="border-2 rounded-full p-4 border-white text-center"><div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full mx-auto animate-spin"></div></div>}
             </div>
         </div>
